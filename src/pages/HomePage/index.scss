@@ -1,0 +1,22 @@
+.page.home-page {
+    .weather {
+        width: 100%;
+        overflow-x: auto;
+
+        .temperature {
+            display: flex;
+
+            canvas {
+                width: 100%;
+                height: 100px;
+            }
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            padding-left: 40px;
+        }
+    }
+}
