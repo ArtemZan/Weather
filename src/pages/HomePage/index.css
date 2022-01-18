@@ -1,25 +1,138 @@
+.page.home-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .page.home-page .weather {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page.home-page .weather .forecast {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.page.home-page .weather .forecast .label {
+  width: 50px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-top: 50px;
+}
+
+.page.home-page .weather .forecast .label > * {
+  display: block;
+}
+
+.page.home-page .weather .forecast .diagram {
   overflow-x: auto;
 }
 
-.page.home-page .weather .temperature {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.page.home-page .weather .forecast .diagram > div {
+  position: relative;
+  min-height: 150px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
 }
 
-.page.home-page .weather .temperature canvas {
-  width: 100%;
+.page.home-page .weather .forecast .diagram > div > * {
+  height: 20px;
+  padding-left: var(--offset);
+}
+
+.page.home-page .weather .forecast .diagram > div canvas {
   height: 100px;
+  pointer-events: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
 }
 
-.page.home-page .weather .timeline {
+.page.home-page .weather .forecast .diagram > div .timeline {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  gap: 30px;
-  padding-left: 40px;
+  height: 50px;
+  border: 1px solid grey;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline .day {
+  min-width: 100px;
+  border-right: 1px solid grey;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline .day:first-child {
+  border-left: 1px solid grey;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline .day:first-child .hours {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline .day header {
+  color: grey;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 14px;
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline .day .hours {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline[data-interval="12"] .hours > * {
+  width: 50px;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline[data-interval="1"] header {
+  font-size: 18px;
+}
+
+.page.home-page .weather .forecast .diagram > div .timeline[data-interval="1"] .hours > * {
+  width: 30px;
+}
+
+.page.home-page .weather .forecast .diagram > div .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.page.home-page .weather .forecast .diagram > div .data div i {
+  display: block;
+  color: #5555bb;
 }

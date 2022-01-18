@@ -77,7 +77,6 @@ export async function getForecast(locations: string, interval: number, period: n
     return new Promise((resolve, reject) => {
         request.onload = () => {
             resolve(JSON.parse(request.responseText) as Forecast)
-            console.log(request.responseText);
         }
 
         request.onerror = reject;
