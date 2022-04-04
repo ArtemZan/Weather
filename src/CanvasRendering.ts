@@ -164,6 +164,11 @@ function DrawTriangle(context: CanvasRenderingContext2D, vert1: Vec2, vert2: Vec
         context.fill();
     context.closePath();
 }
+
+function Clear(context: CanvasRenderingContext2D)
+{
+    context.clearRect(0, 0, canvasWidth, canvasHeight)
+}
 /* --- */
 
 /* Meshes and groups renderers */
@@ -242,5 +247,6 @@ export {
     DrawLine, DrawTriangle, DrawDot, DrawText,
     DrawLines, DrawCurve, DrawBezierCurve, DrawTriangles, DrawTexts,
     ToWorldSpace, ToWindowSpace,
-    setCanvasDimensions
+    setCanvasDimensions,
+    Clear
 }

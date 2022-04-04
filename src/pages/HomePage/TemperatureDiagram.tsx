@@ -1,4 +1,4 @@
-import { DrawBezierCurve, DrawCurve, setCanvasDimensions, ToWorldSpace, Vec2 } from "CanvasRendering";
+import { Clear, DrawBezierCurve, DrawCurve, setCanvasDimensions, SetColor, ToWorldSpace, Vec2 } from "CanvasRendering";
 import { useEffect, useRef } from "react";
 
 export default function TemperatureDiagram({ temperatures, interval, offset }: { temperatures: number[], interval: number, offset: number }) {
@@ -23,12 +23,19 @@ export default function TemperatureDiagram({ temperatures, interval, offset }: {
 
         setCanvasDimensions(parseInt(canvas.current.style.width), 100);
 
+        SetColor(ctx, "white")
+        Clear(ctx);
+
         const max = Math.max(...temperatures)
         const min = Math.min(...temperatures)
+        const amplitude = max - min
 
-        const tempPoints: Vec2[] = temperatures.map((temp, index) => new Vec2(index * (interval === 1 ? 0.0132 : 0.155) - 1, temp / (max - min)));
+        const tempPoints: Vec2[] = temperatures.map((temp, index) => new Vec2(index * (interval === 12 ? 0.155 : 0.01219) - 1, (temp - min) / amplitude - 0.6));
 
-        const colorFunc = (index: number, point: Vec2) => `rgb(${point.y * 200 + 250}, ${point.y * 100 + 250}, ${-point.y * 200})`
+        const colorFunc = (index: number, point: Vec2) => {
+            const temp = point.y * amplitude + 0.6 + min
+            return `rgb(${temp * 20 + 50}, ${Math.min(temp * 5 + 250, temp * -5 + 250)}, ${-temp * 10 + 0})`
+        }
 
 
         DrawCurve(ctx, tempPoints, colorFunc, 3)
