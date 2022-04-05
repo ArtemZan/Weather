@@ -9,8 +9,8 @@ export default function Weather() {
   const [weather, SetWeather] = useState<Forecast>(null);
   const [location, SetLocation] = useState("")
 
-  let forecastInterval = 1;
-  const forecastPeriod = 6;
+  let forecastInterval = 1; //Not constant because of typescript error
+  const forecastPeriod = 12;
   const columnWidth = forecastInterval === 12 ? 50.5 : 30.04
 
   async function Search()
