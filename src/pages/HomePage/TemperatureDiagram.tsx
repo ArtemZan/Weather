@@ -23,7 +23,6 @@ export default function TemperatureDiagram({ temperatures, interval, offset }: {
 
         const width = parseInt(getComputedStyle(canvas.current).width)
         setCanvasDimensions(width, 100);
-        console.log(width)
 
         SetColor(ctx, "white")
         Clear(ctx);
@@ -33,8 +32,6 @@ export default function TemperatureDiagram({ temperatures, interval, offset }: {
         const amplitude = max - min
 
         const dX = 2 / temperatures.length
-
-        console.log(dX, temperatures.length)
 
         const tempPoints: Vec2[] = temperatures.map((temp, index) => new Vec2(index * dX - 1, (temp - min) / amplitude - 0.6)); //(interval === 12 ? 0.155 : 0.01219)
 
